@@ -227,7 +227,9 @@
     }
 
     FIRFirestore *firestore = [FIRFirestore firestoreForApp:app];
-    firestore.settings = settings;
+    // It's already initialized in native iOS module
+    // TODO: add property to skip settings if firestore is used in native project
+    // firestore.settings = settings;
 
     [FLTFirebaseFirestoreUtils setCachedFIRFirestoreInstance:firestore forKey:app.name];
     return firestore;
